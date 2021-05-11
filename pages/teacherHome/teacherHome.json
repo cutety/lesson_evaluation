@@ -1,0 +1,19 @@
+{
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "table-view": "../../../miniprogram_npm/miniprogram-table-component",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-row": "@vant/weapp/row/index",
+  "van-col": "@vant/weapp/col/index",
+  "van-rate": "@vant/weapp/rate/index",
+  "van-field": "@vant/weapp/field/index",
+  "van-popup": "@vant/weapp/popup/index",
+  "van-picker": "@vant/weapp/picker/index",
+  "van-datetime-picker": "@vant/weapp/datetime-picker/index"
+  },
+  "navigationBarTitleText": "教师端"
+}

@@ -1,0 +1,6 @@
+
+page{
+  /*定义主体颜色*/
+--themeColor:#22b14c;
+font-size:28rpx;
+}

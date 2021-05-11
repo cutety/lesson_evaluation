@@ -1,0 +1,101 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.9.3",
+  "appid": "wxade476a37d8a6644",
+  "projectname": "changyuan1",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "pages/studentEvaluate/studentEvaluate",
+          "pathName": "pages/studentEvaluate/studentEvaluate",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/teacherHome/teacherHome",
+          "pathName": "pages/teacherHome/teacherHome",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/studentHome/studentHome",
+          "pathName": "pages/studentHome/studentHome",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/studentHome/studentHome",
+          "pathName": "pages/studentHome/studentHome",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

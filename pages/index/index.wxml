@@ -1,0 +1,31 @@
+<view class="content">
+<image src="../../static/images/logo.png" alt="" style="width:200rpx;height:200rpx;margin-top:20rpx;" />
+
+  <view class="login_wrap">
+    <van-cell-group>
+      <van-field
+        model:value="{{username}}"
+        required
+        clearable
+        label="用户名"
+        icon="question-o"
+        placeholder="请输入用户名"
+        bind:click-icon="onClickIcon"
+        bind:change="onChangeUsername"
+      />
+
+      <van-field
+         model:value="{{ password }}"
+        type="password"
+        label="密码"
+        placeholder="请输入密码"
+        required
+        border="{{ false }}"
+        bind:change="onChangePassword"
+      />
+    </van-cell-group>
+
+
+    <van-button round type="info" custom-style="margin-top:20rpx;" bindtap="login">登录</van-button>
+  </view>
+</view>

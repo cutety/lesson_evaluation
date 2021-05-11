@@ -1,0 +1,20 @@
+.table_wrap{
+  padding: 1px;
+  margin-top: 10rpx;
+}
+.already_wrap_col{
+  text-align: center;
+}
+.already_wrap_col .tag{
+  font-size: 30rpx;
+  background: #07c160;
+  padding: 15rpx;
+  color: white;
+  width: 70%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+
+}

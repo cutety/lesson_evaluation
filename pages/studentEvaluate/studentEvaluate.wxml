@@ -1,0 +1,61 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 评价页面 -->
+
+      <div class="already_wrap">
+      <!-- 课程名称 -->
+        <van-cell-group>
+          <van-cell title="课程名称" value="{{stuLessInfo.lesson}}" border="{{ false }}" />
+        </van-cell-group>
+
+        <!-- 教师和上课时间 -->
+        <van-row gutter="20" custom-class="already_wrap_col">
+          <van-col span="12">
+            <view class="tag">{{stuLessInfo.mentor_name}}</view>
+          </van-col>
+          <van-col span="12">
+            <view class="tag">{{stuLessInfo.start_at}}</view>
+          </van-col>
+        </van-row>
+
+        <!-- 平分 -->
+        <van-cell border="{{ false }}" >
+          <view slot="title">
+            <view class="van-cell-text" style="display:inline-block;padding-right:10rpx;">评分</view>
+            <van-rate
+              value="{{rate}}"
+              icon="like"
+              void-icon="like-o"
+              bind:change="onChangeRate"
+              color="#ee0a24"
+            />
+          </view>
+        </van-cell>
+
+
+        <!-- 评价内容 -->
+        <van-cell border="{{ false }}" >
+          <view slot="title">
+            <view class="van-cell-text" >评价内容</view>
+            <van-cell-group>
+              <van-field
+                value="{{ message }}"
+                label="留言"
+                type="textarea"
+                placeholder="请输入留言"
+                autosize
+                bind:change="onChangeMessage"
+              />
+            </van-cell-group>
+          </view>
+        </van-cell>
+
+
+        <!-- 提交按钮 -->
+        <van-button type="primary" block style="border-raduis:10rpx;" bindtap="submitMessage">提交评价</van-button>
+
+        
+
+
+      </div>
+</view>

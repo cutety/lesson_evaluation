@@ -1,0 +1,216 @@
+<wxs module="utils" src="../../utils/dateUtil.wxs"></wxs>  
+<!--index.wxml-->
+<view class="container">
+  <view class="tab_wrap">
+    <van-tabs type="card" color="#22b14c"  bind:change="onChangeTab">
+
+      <van-tab title="添加课程">
+
+
+          <!-- 年级和班级选择 -->
+          <van-cell-group>
+            <van-cell title="年级" value="{{gradeValue}}" is-link bindtap="showGrade" />
+            <van-cell title="班级" value="{{classValue.name}}" is-link bindtap="showClass" />
+          </van-cell-group>
+
+          <!-- 课程名 -->
+          <van-cell-group>
+            <van-field
+              value="{{ lessonValueOne }}"
+              required
+              clearable
+              label="课程名"
+              placeholder="请输入课程名"
+               bind:change="lessonChange"
+            />
+          </van-cell-group>
+
+
+          <van-button type="primary" round block custom-style="margin-top:20rpx;" bindtap="addLesson">添加</van-button>
+
+          <!-- 年级选择器 -->
+          <van-popup
+            show="{{ gradeShow }}"
+            position="bottom"
+            custom-style="height: 40%;"
+            bind:close="onClose"
+          >
+          <van-picker
+            show-toolbar
+            title="选择年级"
+            columns="{{ gradeColumns }}"
+            bind:cancel="onClose"
+            bind:confirm="onConfirmGrade"
+          />
+          </van-popup>
+
+          <!-- 班级选择器 -->
+          <van-popup
+            show="{{ classShow }}"
+            position="bottom"
+            custom-style="height: 40%;"
+            bind:close="onClose"
+          >
+          <van-picker
+            show-toolbar
+            title="选择班级"
+            columns="{{ classColumns }}"
+            value-key="name"
+            bind:cancel="onClose"
+            bind:confirm="onConfirmClass"
+          />
+          </van-popup>
+
+      </van-tab>
+
+      <van-tab title="开始上课">
+         <!-- 年级和班级选择 -->
+          <van-cell-group>
+            <van-cell title="年级" value="{{gradeValue}}" is-link bindtap="showGrade" />
+            <van-cell title="班级" value="{{classValue.name}}" is-link bindtap="showClass" />
+            <van-cell title="课程名" value="{{lessonValue.course}}" is-link bindtap="showLesson" />
+          </van-cell-group>
+
+          <!-- 上课时间 和  下课时间-->
+          <van-row gutter="20" custom-class="already_wrap_col">
+            <van-col span="12">
+              <view class="tag" bindtap="showStartDate">{{ startDateValue }}</view>
+            </van-col>
+            <van-col span="12">
+              <view class="tag" bindtap="showEndDate">{{ endDateValue }}</view>
+            </van-col>
+          </van-row>
+
+
+
+          <van-button type="primary" round block custom-style="margin-top:20rpx;" bindtap="startLesson">开始上课</van-button>
+
+          <!-- 年级选择器 -->
+          <van-popup
+            show="{{ gradeShow }}"
+            position="bottom"
+            custom-style="height: 40%;"
+            bind:close="onClose"
+          >
+          <van-picker
+            show-toolbar
+            title="选择年级"
+            columns="{{ gradeColumns }}"
+            bind:cancel="onClose"
+            bind:confirm="onConfirmGrade"
+          />
+          </van-popup>
+
+          <!-- 班级选择器 -->
+          <van-popup
+            show="{{ classShow }}"
+            position="bottom"
+            custom-style="height: 40%;"
+            bind:close="onClose"
+          >
+          <van-picker
+            show-toolbar
+            title="选择班级"
+            columns="{{ classColumns }}"
+            value-key="name"
+            bind:cancel="onClose"
+            bind:confirm="onConfirmClass"
+          />
+          </van-popup>
+
+          <!-- 课程选择器 -->
+          <van-popup
+            show="{{ lessonShow }}"
+            position="bottom"
+            custom-style="height: 40%;"
+            bind:close="onClose"
+          >
+          <van-picker
+            show-toolbar
+            title="选择课程名"
+            columns="{{ lessonColumns }}"
+            value-key="course"
+            bind:cancel="onClose"
+            bind:confirm="onConfirmLesson"
+          />
+          </van-popup>
+
+          <!-- 上课开始时间选择器 -->
+          <van-popup
+            show="{{ startDateShow }}"
+            position="bottom"
+            custom-style="height: 40%;"
+            bind:close="onClose"
+          >
+          <van-datetime-picker
+            type="datetime"
+            value="{{ currentDate }}"
+            bind:cancel="onClose"
+            bind:confirm="setStartDate"
+          />
+          </van-popup>
+
+          <!-- 下课开始时间选择器 -->
+          <van-popup
+            show="{{ endDateShow }}"
+            position="bottom"
+            custom-style="height: 40%;"
+            bind:close="onClose"
+          >
+          <van-datetime-picker
+            type="datetime"
+            value="{{ currentDate }}"
+            bind:cancel="onClose"
+            bind:confirm="setEndDate"
+          />
+          </van-popup>
+
+
+      </van-tab>
+
+      <van-tab title="课堂评价">
+
+
+        <div class="already_wrap" wx:for="{{lessonMessage}}" wx:for-item="val" wx:key="key">
+      <!-- 课程名称 -->
+        <van-cell-group>
+          <van-cell title="课程名称" value="{{ val.lesson }}" border="{{false}}" />
+        </van-cell-group>
+
+        <!-- 教师和上课时间 -->
+        <van-row gutter="20" custom-class="already_wrap_col">
+          <van-col span="12">
+            <view class="tag">{{ val.stu_name }}</view>
+          </van-col>
+          <van-col span="12">
+            <view class="tag">{{ val.start_at }}</view>
+          </van-col>
+        </van-row>
+
+        <!-- 平分 -->
+        <van-cell border="{{ false }}" >
+          <view slot="title">
+            <view class="van-cell-text" style="display:inline-block;padding-right:10rpx;">评分</view>
+            <van-rate
+              value="{{ val.rate }}"
+              icon="like"
+              void-icon="like-o"
+              bind:change="onChange"
+              color="#ee0a24"
+            />
+          </view>
+        </van-cell>
+
+
+        <!-- 评价内容 -->
+        <van-cell title="评价内容"  size="large" label="{{ val.content }}" border="{{ false }}"  />
+
+        <van-divider />
+
+
+      </div>
+      </van-tab>
+
+    </van-tabs>
+  </view>
+</view>
